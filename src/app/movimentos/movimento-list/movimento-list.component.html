@@ -1,0 +1,26 @@
+<table class="gridtable">
+<thead>
+        <tr>
+            <th>dataLancamento</th>
+            <th>descricao</th>
+            <th>numero</th>
+            <th>situacao</th>
+            <th>dataConferencia</th>
+            <th>dadosBancarios</th>
+            <th>valor</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <app-movimento
+            *ngFor="let movimento of movimentos" 
+            [dataLancamento]="movimento.dataLancamento" 
+            [descricao]="movimento.descricao"
+            [numero]="movimento.numero"
+            [situacao]="movimento.situacao"
+            [dataConferencia]="movimento.dataConferencia"
+            [dadosBancarios]="movimento.dadosBancarios"
+            [valor]="movimento.valor">
+        </app-movimento>
+     </tbody>   
+</table>
