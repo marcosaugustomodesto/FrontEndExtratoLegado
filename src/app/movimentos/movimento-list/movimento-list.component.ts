@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovimentoService } from '../movimento/movimento.service';
+import { Movimento } from '../movimento/movimento';
+
 
 @Component({
   selector: 'app-movimento-list',
@@ -8,9 +10,7 @@ import { MovimentoService } from '../movimento/movimento.service';
 })
 export class MovimentoListComponent implements OnInit {
 
-  movimentos: any[] = [];
-  
-  movimentos_: any[]= [];  
+  private movimentos;
   
 
   constructor(
@@ -19,15 +19,7 @@ export class MovimentoListComponent implements OnInit {
 
 
   ngOnInit() {
-    
-    this.movimentoService.listAll()
-      .subscribe(movimentos => { 
-        console.log(movimentos);           
-        this.movimentos = movimentos;               
-      }
-    );
-
-
+    this.movimentos = this.movimentoService.listAll()
   }
 
   
