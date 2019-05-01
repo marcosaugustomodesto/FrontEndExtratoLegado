@@ -1,10 +1,10 @@
 export interface Movimento {
     id:number;
-    dataLancamento:string;
+    dataLancamento:Date;
     descricao:string;
     numero:number;
     situacao:string;
-    dataConferencia:string;
+    dataConferencia:Date;
     dadosBancarios:string;
     valor:number;
 }

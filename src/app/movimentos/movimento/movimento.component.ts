@@ -7,11 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class MovimentoComponent {
 
-  @Input() dataLancamento;
+  @Input() dataLancamento: Date = null;
   @Input() descricao = '';
   @Input() numero = 0;
   @Input() situacao = '';
-  @Input() dataConferencia;
+  @Input() dataConferencia: Date = null;
   @Input() dadosBancarios = '';
   @Input() valor = 0;
 

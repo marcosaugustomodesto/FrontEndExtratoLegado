@@ -20,7 +20,7 @@ export class MovimentoListComponent implements OnInit {
 
   ngOnInit() {
     this.movimentoService.listAll()
-     .subscribe(mov => this.movimentos = mov);    
+     .subscribe(mov => this.movimentos = mov, err => console.log(err));    
   }
 
   
