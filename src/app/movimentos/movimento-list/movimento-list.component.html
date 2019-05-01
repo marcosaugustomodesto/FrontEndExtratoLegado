@@ -1,13 +1,29 @@
-<ol class="list-unstyled">
-        <li *ngFor="let movimento of movimentos" class="row">
-            <div class="col-4">
-                    <app-movimento *ngFor="let movimento of movimentos" 
-                    [dataLancamento]="movimento.dataLancamento"
-                    [descricao]="movimento.descricao" 
-                    [numero]="movimento.numero" [situacao]="movimento.situacao"
-                    [dataConferencia]="movimento.dataConferencia" 
-                    [dadosBancarios]="movimento.dadosBancarios"
-                    [valor]="movimento.valor"></app-movimento>
-            </div>
-        </li>
-    </ol>
+<div class="bs-example">
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th width="10%"></th>
+                <th>dataLancamento</th>
+                <th>descricao</th>
+                <th>numero</th>
+                <th>situacao</th>
+                <th>dataConferencia</th>
+                <th>dadosBancarios</th>
+                <th>valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movimento of movimentos" >
+                <app-movimento></app-movimento>
+                <td>{{movimento.dataLancamento}}</td>
+                <td>{{movimento.descricao}}</td>
+                <td>{{movimento.numero}}</td>
+                <td>{{movimento.situacao}}</td>
+                <td>{{movimento.dataConferencia}}</td>
+                <td>{{movimento.dadosBancarios}}</td>
+                <td>{{movimento.valor}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
