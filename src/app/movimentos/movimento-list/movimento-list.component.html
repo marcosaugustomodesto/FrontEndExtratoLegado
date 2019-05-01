@@ -1,5 +1,5 @@
 <table class="gridtable">
-<thead>
+    <thead>
         <tr>
             <th>dataLancamento</th>
             <th>descricao</th>
@@ -12,15 +12,10 @@
     </thead>
 
     <tbody>
-        <app-movimento
-            *ngFor="let movimento of movimentos" 
-            [dataLancamento]="movimento.dataLancamento" 
-            [descricao]="movimento.descricao"
-            [numero]="movimento.numero"
-            [situacao]="movimento.situacao"
-            [dataConferencia]="movimento.dataConferencia"
-            [dadosBancarios]="movimento.dadosBancarios"
-            [valor]="movimento.valor">
-        </app-movimento>
-     </tbody>   
+        <app-movimento *ngFor="let movimento of movimentos" [dataLancamento]="movimento.dataLancamento"
+            [descricao]="movimento.descricao" [numero]="movimento.numero" [situacao]="movimento.situacao"
+            [dataConferencia]="movimento.dataConferencia" [dadosBancarios]="movimento.dadosBancarios"
+            [valor]="movimento.valor"></app-movimento>
+
+    </tbody>
 </table>

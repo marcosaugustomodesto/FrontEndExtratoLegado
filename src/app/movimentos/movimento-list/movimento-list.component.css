@@ -5,18 +5,30 @@ table.gridtable {
 	border-width: 1px;
 	border-color: #666666;
 	border-collapse: collapse;
+	width: 100%;
 }
-table.gridtable th {
+th {
 	border-width: 1px;
 	padding: 8px;
 	border-style: solid;
-	border-color: #666666;
+	border-color: #000000;
 	background-color: #dedede;
+	width: 50px;
 }
-table.gridtable td {
+tr {
 	border-width: 1px;
 	padding: 8px;
 	border-style: solid;
-	border-color: #666666;
-	background-color: #ffffff;
+	border-color: #000000;
+	background-color: #333333;
+	width: 1500px;
+}
+
+table td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #000000;
+	background-color: #333333;
+	width: 50px;
 }

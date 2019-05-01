@@ -10,7 +10,7 @@ import { Movimento } from '../movimento/movimento';
 })
 export class MovimentoListComponent implements OnInit {
 
-  private movimentos;
+  private movimentos:Movimento[];
   
 
   constructor(
@@ -19,7 +19,8 @@ export class MovimentoListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.movimentos = this.movimentoService.listAll()
+    this.movimentoService.listAll()
+     .subscribe(mov => this.movimentos = mov);    
   }
 
   

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Movimento } from "./movimento";
 
-const API = 'http://localhost:8083';
+const API = 'http://192.168.0.7:8083';
 
 const httpOptions = {
     headers: new HttpHeaders({ 
@@ -20,12 +20,7 @@ export class MovimentoService {
     constructor(private http: HttpClient) {}
     
     listAll() {         
-        this.http.get<Movimento[]>(API + '/extrato/all', httpOptions)
-        .subscribe(mov => { 
-            this.movimentos = mov;
-             console.log("movimento importados:" + mov);   
-             return this.movimentos;
-           });;        
+        return this.http.get<Movimento[]>(API + '/extrato/all', httpOptions);
     }
 
 
