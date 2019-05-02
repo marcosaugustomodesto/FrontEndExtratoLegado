@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Movimento } from "./movimento";
 
-const API = 'http://192.168.0.7:8083';
+const API = 'http://10.230.8.112:8083';
 
 const httpOptions = {
     headers: new HttpHeaders({ 

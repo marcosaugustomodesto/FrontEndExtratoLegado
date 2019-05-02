@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Movimento } from './movimento';
+import { MovimentoService } from './movimento.service';
 
 @Component({
   selector: 'app-movimento',
@@ -15,5 +17,7 @@ export class MovimentoComponent {
   @Input() dadosBancarios = '';
   @Input() valor = 0;
 
+  @Input() movimentos:Movimento[];
+  
 
 }

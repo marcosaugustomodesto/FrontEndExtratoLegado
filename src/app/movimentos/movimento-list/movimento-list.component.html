@@ -1,29 +1,15 @@
 <div class="bs-example">
-    <table class="table table-striped table-dark">
-        <thead>
-            <tr>
-                <th width="10%"></th>
-                <th>dataLancamento</th>
-                <th>descricao</th>
-                <th>numero</th>
-                <th>situacao</th>
-                <th>dataConferencia</th>
-                <th>dadosBancarios</th>
-                <th>valor</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let movimento of movimentos" >
-                <app-movimento></app-movimento>
-                <td>{{movimento.dataLancamento}}</td>
-                <td>{{movimento.descricao}}</td>
-                <td>{{movimento.numero}}</td>
-                <td>{{movimento.situacao}}</td>
-                <td>{{movimento.dataConferencia}}</td>
-                <td>{{movimento.dadosBancarios}}</td>
-                <td>{{movimento.valor}}</td>
+    <div class="text-center mt-3 mb-3">
+        <form>
+            <input 
+            class="rounded" 
+            type="search" 
+            placeholder="search..." 
+            (keyup)="filter = $event.target.value"
+            autofocus/>
+        </form>
+    </div>
+    <app-movimento [movimentos]="movimentos|filterByDescription: filter"></app-movimento>
 
-            </tr>
-        </tbody>
-    </table>
 </div>
+
