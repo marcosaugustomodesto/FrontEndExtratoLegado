@@ -1,32 +1,22 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { MovimentoService } from '../movimento/movimento.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Movimento } from '../movimento/movimento';
-import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-movimento-list',
   templateUrl: './movimento-list.component.html',
   styleUrls: ['./movimento-list.component.css']
 })
-export class MovimentoListComponent implements OnInit, OnChanges {
+export class MovimentoListComponent implements OnInit {
   
-  @Input() movimentos:Movimento[] = [];
-  @Input() filter: string = '';
-
-
-  constructor(
-    private movimentoService: MovimentoService
-  ) { }
-  ngOnInit() {
-    this.movimentoService.listAll()
-     .subscribe(mov => this.movimentos = mov, err => console.log(err));    
+  movimentos: Movimento[] = [];
+  filter: string = ''; 
+  
+  constructor(private activateRoute: ActivatedRoute) { }
+  
+  ngOnInit(): void {
+      this.movimentos = this.activateRoute.snapshot.data.movimentos;
   }
-
-  ngChanges() {
-    this.movimentoService.listAll()
-     .subscribe(mov => this.movimentos = mov, err => console.log(err));    
-  }
-
 
 }
 
