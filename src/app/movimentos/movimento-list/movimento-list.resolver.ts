@@ -9,7 +9,7 @@ export class MovimentoListResolver implements Resolve<Observable<Movimento[]>>{
     constructor(private service:MovimentoService){}
 
     resolve(route: import("@angular/router").ActivatedRouteSnapshot, state: import("@angular/router").RouterStateSnapshot): Observable<Movimento[]> | Observable<Observable<Movimento[]>> | Promise<Observable<Movimento[]>> {
-        return this.service.listAll();
+        return this.service.listFromMovimentosPaginated(0);
     }
 
 }

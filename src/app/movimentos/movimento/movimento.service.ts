@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Movimento } from "./movimento";
@@ -23,5 +23,9 @@ export class MovimentoService {
         return this.http.get<Movimento[]>(API + '/extrato/all', httpOptions);
     }
 
+    listFromMovimentosPaginated(page: number){
+        const params = new HttpParams().append('pagina', page.toString());
+        return this.http.get<Movimento[]>(API + '/extrato/page', { params });
+    }
 
 }

@@ -10,6 +10,9 @@
         </form>
     </div>
     <app-movimento [movimentos]="movimentos|filterByDescription: filter"></app-movimento>
-
+    <app-load-button 
+        (click)="load()" 
+        [hasMore]="hasMore">
+    </app-load-button>
 </div>
 

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Movimento } from '../movimento/movimento';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { MovimentoService } from '../movimento/movimento.service';
 
 @Component({
   selector: 'app-movimento-list',
@@ -14,8 +15,11 @@ export class MovimentoListComponent implements OnInit, OnDestroy {
   movimentos: Movimento[] = [];
   filter: string = ''; 
   debounce: Subject<string> = new Subject<string>();
-  
-  constructor(private activateRoute: ActivatedRoute) { }
+  hasMore: boolean = true;
+  currentPage: number = 1;
+
+  constructor(private activateRoute: ActivatedRoute,
+        private movimentoService: MovimentoService) { }
   
   ngOnInit(): void {
     this.movimentos = this.activateRoute.snapshot.data.movimentos;
@@ -26,6 +30,16 @@ export class MovimentoListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.debounce.unsubscribe();
+  }
+
+  load(){
+    this.movimentoService
+      .listFromMovimentosPaginated(++this.currentPage)
+      .subscribe(movimentos => {
+        this.movimentos = this.movimentos.concat(movimentos);
+        if(!movimentos.length) this.hasMore = false;
+
+      });
   }
 
 }
